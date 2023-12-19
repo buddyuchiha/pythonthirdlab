@@ -2,7 +2,7 @@ import csv
 import datetime
 
 def get_info(my_date: datetime.date) -> str:
-        with open ('task4/dataset.csv', 'r', encoding = "utf-8") as f:
+        with open ('dataset.csv', 'r', encoding = "utf-8") as f:
             reader = csv.reader(f)
             data = list(reader)
             for row in data:
@@ -13,7 +13,7 @@ def get_info(my_date: datetime.date) -> str:
 print(get_info(datetime.date(2023,12,7)))
 
 def get_info_XY(my_date: datetime.date) -> str:
-    with open('task4/x.csv', 'r', encoding = "utf-8") as x, open('task4/y.csv', 'r', encoding="utf-8") as y:
+    with open('x.csv', 'r', encoding = "utf-8") as x, open('task4/y.csv', 'r', encoding="utf-8") as y:
         reader_x = csv.reader(x)
         data_x = list(reader_x)
         reader_y = csv.reader(y)
