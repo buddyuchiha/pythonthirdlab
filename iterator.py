@@ -21,7 +21,7 @@ class DataIterator:
         raise StopIteration
 
 def main() -> None:
-    iterator = DataIterator('task5/dataset.csv')
+    iterator = DataIterator('dataset.csv')
     for date, data in iterator:
         print(f"Дата: {date}, Данные о ветре: {data}")
         
