@@ -21,12 +21,14 @@ def split_csv_by_years(input_file):
         date_str = row[0]
         date = datetime.datetime.strptime(date_str, '%Y-%m-%d')
         years.add(date.year)
-    
-    output_folder = 'task2'
     for year in years:
         start_date = datetime.datetime(year, 1, 1).strftime('%Y%m%d')
         end_date = datetime.datetime(year, 12, 31).strftime('%Y%m%d')
-        new_file_name = os.path.join(output_folder, f'{start_date}_{end_date}.csv')
+        new_file_name = os.path.join(f'{start_date}_{end_date}.csv')
         
         filtered_data = [row for row in data if datetime.datetime.strptime(row[0], '%Y-%m-%d').year == year]
         write_to_file(new_file_name, filtered_data)
+        
+
+input_file = 'dataset.csv'
+split_csv_by_years(input_file)

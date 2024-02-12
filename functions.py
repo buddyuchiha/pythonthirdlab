@@ -10,10 +10,9 @@ def get_info(my_date: datetime.date) -> str:
                     return (row[1]) + ' ' + (row[2]) + ' ' + (row[3]) + ' ' + (row[4]) + ' ' + (row[5]) + ' ' + (row[6])
                 if str(my_date) < str(row[0][0:10]):
                     return None
-print(get_info(datetime.date(2023,12,7)))
 
 def get_info_XY(my_date: datetime.date) -> str:
-    with open('x.csv', 'r', encoding = "utf-8") as x, open('task4/y.csv', 'r', encoding="utf-8") as y:
+    with open('x.csv', 'r', encoding = "utf-8") as x, open('y.csv', 'r', encoding="utf-8") as y:
         reader_x = csv.reader(x)
         data_x = list(reader_x)
         reader_y = csv.reader(y)
@@ -27,12 +26,11 @@ def get_info_XY(my_date: datetime.date) -> str:
             if str(my_date) < str(row[0][0:10]):
                     return None
                 
-print(get_info_XY(datetime.date(2023,12,7)))
          
 
 def get_info_year(my_date: datetime.date) -> str:
     year = my_date.strftime("%Y")
-    file_name = 'task4/' + year + '0101_' + year + '1231.csv'
+    file_name = year + '0101_' + year + '1231.csv'
     try:
         with open(file_name, 'r', encoding = 'utf-8') as f:
             reader = csv.reader(f)
@@ -43,7 +41,6 @@ def get_info_year(my_date: datetime.date) -> str:
             return result
     except FileNotFoundError:
         return None
-# print(get_info_year(datetime.date(2008,12,7)))
 
 def get_info_week(my_date: datetime.date) -> str:
     my_week = my_date.weekday()
@@ -55,7 +52,7 @@ def get_info_week(my_date: datetime.date) -> str:
     start_date_str = start_date.strftime("%Y%m%d")
     end_date_str = end_date.strftime("%Y%m%d")
     
-    file_name = 'task4/' + start_date_str + '_' + end_date_str + '.csv'
+    file_name = start_date_str + '_' + end_date_str + '.csv'
     print(file_name)
     try:
         with open(file_name, 'r', encoding='utf-8') as f:
@@ -68,7 +65,6 @@ def get_info_week(my_date: datetime.date) -> str:
     except FileNotFoundError:
         return None
     
-print(get_info_week(datetime.date(2023, 11, 16)))
 
 
 
