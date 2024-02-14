@@ -30,5 +30,3 @@ def split_csv_by_years(input_file):
         write_to_file(new_file_name, filtered_data)
         
 
-input_file = 'dataset.csv'
-split_csv_by_years(input_file)

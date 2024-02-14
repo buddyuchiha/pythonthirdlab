@@ -9,6 +9,9 @@ def write_to_file(file_name, data):
         writer = csv.writer(f)
         writer.writerows(data)
 def split_csv_by_weeks(input_file):
+    """
+    Разбивает исходный csv файл на файлы по неделям.
+    """
     with open(input_file, 'r') as f:
         reader = csv.reader(f)
         data = list(reader)
@@ -43,5 +46,3 @@ def split_csv_by_weeks(input_file):
     write_to_file(file_name, current_week_data)
     
 
-input_file = 'dataset.csv'
-split_csv_by_weeks(input_file)

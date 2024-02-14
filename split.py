@@ -20,5 +20,3 @@ def split_csv(input_file):
             writer_x.writerow([data[i][0]])  
             writer_y.writerow(data[i][1:]) 
 
-input_file = 'dataset.csv'
-split_csv(input_file)

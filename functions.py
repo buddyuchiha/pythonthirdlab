@@ -1,8 +1,11 @@
 import csv
 import datetime
 
-def get_info(my_date: datetime.date) -> str:
-        with open ('dataset.csv', 'r', encoding = "utf-8") as f:
+def get_info(my_date: datetime.date, path) -> str:
+        """
+        Получает погоду.
+        """
+        with open (path, 'r', encoding = "utf-8") as f:
             reader = csv.reader(f)
             data = list(reader)
             for row in data:
@@ -12,6 +15,9 @@ def get_info(my_date: datetime.date) -> str:
                     return None
 
 def get_info_XY(my_date: datetime.date) -> str:
+    """
+    Получает погоду из файлов X и Y.
+    """
     with open('x.csv', 'r', encoding = "utf-8") as x, open('y.csv', 'r', encoding="utf-8") as y:
         reader_x = csv.reader(x)
         data_x = list(reader_x)
@@ -29,6 +35,9 @@ def get_info_XY(my_date: datetime.date) -> str:
          
 
 def get_info_year(my_date: datetime.date) -> str:
+    """
+    Получает погоду из файлов с годами.
+    """
     year = my_date.strftime("%Y")
     file_name = year + '0101_' + year + '1231.csv'
     try:
@@ -43,6 +52,9 @@ def get_info_year(my_date: datetime.date) -> str:
         return None
 
 def get_info_week(my_date: datetime.date) -> str:
+    """
+    Получаем погоду из файлов с неделями.
+    """
     my_week = my_date.weekday()
     start_date = my_date - datetime.timedelta(days=my_week)
     print(start_date)

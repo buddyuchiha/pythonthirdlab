@@ -18,18 +18,21 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet("background-color: rgb(198, 255, 167);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.button_chose_weather = QtWidgets.QDateEdit(self.centralwidget)
-        self.button_chose_weather.setGeometry(QtCore.QRect(160, 10, 171, 41))
-        self.button_chose_weather.setStyleSheet("background-color: rgb(231, 255, 237);")
-        self.button_chose_weather.setObjectName("button_chose_weather")
-        self.text = QtWidgets.QLabel(self.centralwidget)
-        self.text.setGeometry(QtCore.QRect(30, 10, 121, 41))
-        self.text.setStyleSheet("font: 13pt \"MS Shell Dlg 2\";")
-        self.text.setObjectName("text")
         self.button_weather = QtWidgets.QPushButton(self.centralwidget)
         self.button_weather.setGeometry(QtCore.QRect(70, 60, 221, 41))
         self.button_weather.setStyleSheet("background-color: rgb(231, 255, 237);")
         self.button_weather.setObjectName("button_weather")
+    # Далее вы можете использовать информацию, полученную из функции get_info
+        self.text = QtWidgets.QLabel(self.centralwidget)
+        self.text.setGeometry(QtCore.QRect(30, 10, 121, 41))
+        self.text.setStyleSheet("font: 13pt \"MS Shell Dlg 2\";")
+        self.text.setObjectName("text")
+        self.button_chose_weather = QtWidgets.QDateEdit(self.centralwidget)
+        self.button_chose_weather.setGeometry(QtCore.QRect(160, 10, 171, 41))
+        self.button_chose_weather.setStyleSheet("background-color: rgb(231, 255, 237);")
+        self.button_chose_weather.setObjectName("button_chose_weather")
+        self.button_chose_weather.setCalendarPopup(True)
+        self.button_chose_weather.setDate(QtCore.QDate.currentDate())
         self.button_chose_file = QtWidgets.QPushButton(self.centralwidget)
         self.button_chose_file.setGeometry(QtCore.QRect(20, 110, 111, 121))
         self.button_chose_file.setStyleSheet("background-color: rgb(231, 255, 237);")
@@ -72,6 +75,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.split_csv_weeks)
         MainWindow.setCentralWidget(self.centralwidget)
 
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -87,7 +91,7 @@ class Ui_MainWindow(object):
         self.split_csv_x_y.setText(_translate("MainWindow", "Разделить на X и Y"))
         self.split_csv_year.setText(_translate("MainWindow", "Разделить по годам"))
         self.split_csv_weeks.setText(_translate("MainWindow", "Разделить по неделями"))
-
+    
 
 if __name__ == "__main__":
     import sys
